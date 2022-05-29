@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>taller2</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="center">
+<p><span class="smallcaps">ProgramBI - Curso SQL
+Básico/Intermedio</span></p>
+</div>
+<div class="center">
+<p><strong>Taller 2 - Logística Internacional</strong></p>
+</div>
+<a href="https://drive.google.com/file/d/1--ir342J5OzYwwtXbxKFcoWZCZCnUAey/view?usp=sharing.zip">Taller 2 archivos y anexos</a>
+<h1 class="unnumbered" id="descripción">Descripción</h1>
+<p>El archivo <code>sales.csv</code> contiene un amplio registro de
+transacciones realizadas en una empresa de retail, con detalles
+logísticos respecto a las transacciones:</p>
+<ul>
+<li><p><code>Region</code>: región o continente a donde se enviará el
+pedido (región destino)</p></li>
+<li><p><code>Country</code>: país a donde se enviará el pedido (país
+destino)</p></li>
+<li><p><code>Item_Type</code>: categoría de producto enviado</p></li>
+<li><p><code>Sales_Channel</code>: Canal de ventas del producto (canal
+en donde fue ordenado)</p></li>
+<li><p><code>Order_Priority</code>: Nivel de prioridad de envío (H:
+alta, L: baja)</p></li>
+<li><p><code>Order_Date</code>: Fecha en que se realizó la orden por
+canal de ventas</p></li>
+<li><p><code>Order_ID</code>: Id de la orden</p></li>
+<li><p><code>Ship_Date</code>: Fecha en que fue enviado a
+destino</p></li>
+<li><p><code>Units_Sold</code>: Unidades de producto</p></li>
+<li><p><code>Unit_Price</code>: Precio Unitario</p></li>
+<li><p><code>Unit_Cost</code>: Costo Unitario</p></li>
+<li><p><code>Total_Revenue</code>: Ingreso total (precio unitario <span
+class="math inline">×</span> unidades)</p></li>
+<li><p><code>Total_Cost</code>: Costo total (costo unitario <span
+class="math inline">×</span> unidades)</p></li>
+<li><p><code>Total_Profit</code>: Utilidad total (Ingreso total <span
+class="math inline">−</span> Costo total)</p></li>
+</ul>
+<p>Junto con ello, el archivo <code>countries.csv</code> incluye
+información de los países (como un código identificador y su posición en
+un mapa):</p>
+<ul>
+<li><p><code>country</code>: código del país (2 caracteres)</p></li>
+<li><p><code>latitude</code>: Latitud en grados</p></li>
+<li><p><code>longitude</code>: Longitud en grados</p></li>
+<li><p><code>name</code>: Nombre del país</p></li>
+</ul>
+<p>Cargar los datos en una tabla en SQL Server y elaborar las consultas
+para analizar cada uno de los siguientes problemas</p>
+<h1 id="distancias-al-centro-de-distribución">Distancias al centro de
+distribución</h1>
+<p>En esta parte del taller asumiremos que nuestra empresa de retail
+tiene su centro de distribución en Estados Unidos, una gran bodega desde
+donde realiza los envíos a todo el mundo. Como tenemos las coordenadas
+de los países a donde se hacen los envíos, podremos saber a que
+distancia se encuentran de Estados Unidos utilizando una <em>función de
+Semiverseno</em> ampliamente aprobada para calcular la distancia entre
+dos puntos de nuestro planeta utilizando sus coordenadas.</p>
+<ul>
+<li><p>Construir una consulta de cruce entre la tabla <code>sales</code>
+y la tabla <code>countries</code> que nos entregue los siguientes campos
+para cada registro de <code>sales</code>:</p>
+<ul>
+<li><p><code>order_id (sales)</code></p></li>
+<li><p><code>country (sales)</code></p></li>
+<li><p><code>latitude (countries)</code></p></li>
+<li><p><code>longitude (countries)</code></p></li>
+<li><p>Diferencia en días entre fecha de envío y fecha de la orden<br />
+<code>DATEDIFF(d,sales.order_date,sales.ship_date)</code> que llamaremos
+<code>dias_t</code></p></li>
+<li><p><code>units_solds (sales)</code></p></li>
+<li><p><code>unit_price(sales)</code></p></li>
+</ul></li>
+<li><p>Crear una función de <em>distancia</em> que recibirá 4 parámetros
+(2 latitudes y 2 longitudes) y entregará como output la distancia en
+kilómetros entre 2 puntos:
+<code>distancia(@lat_1 float, @long_1 float, @lat_2 float,@long_2 float)\rightarrowdistancia[Km]</code>.
+La función viene lista para ser implementada en el archivo
+<code>semiverseno.sql</code>.</p></li>
+<li><p>Incluir un campo de distancia en la consulta elaborada en (1)
+calculando la distancia a Estados Unidos (que llamaremos
+<code>distancia_us</code>) y usando para esto la función implementada en
+(2) (Coordenadas Estados Unidos lat=37.09024/long=-95.712891). Cargar
+esta nueva consulta en una tabla temporal.</p></li>
+</ul>
+<h1 id="correlación-entre-variables">Correlación entre variables</h1>
+<p>La correlación es una medida estadística que expresa hasta qué punto
+dos variables están relacionadas linealmente (esto es, cambian
+conjuntamente a una tasa constante). Por ejemplo, si dos variables
+tienen correlación positiva quiere decir que se mueven en la misma
+dirección y linealmente en magnitud, en promedio, mientras que si dos
+variables tienen correlación negativa, se mueven en sentidos contrarios
+y linealmente en magnitud, en promedio. No confundir con causalidad (por
+ejemplo si una variable sube y esto causa que otra variable suba, desde
+la correlación no debemos inferir esto). Si la correlación es cercana a
+cero, no se puede concluir que exista una relación lineal entre ambas
+variables.<br />
+Para calcular la correlación en SQL entre un <code>campo1</code> y un
+<code>campo2</code> podemos usar las funciones de agregado
+<code>AVG</code> y <code>STDEVP</code> de la siguiente manera:<br />
+<br />
+<code> SELECT (AVG(campo1 * campo2) - (AVG(campo1) * AVG(campo2))) / (STDEVP(campo1) * STDEVP(campo2)) FROM tabla</code></p>
+<ul>
+<li><p>Calcular la correlación entre <code>distancia_us</code> y
+<code>dias_t</code>, a modo de ver si mayor distancia a Estados Unidos
+se relaciona con mayores días de envío. ¿Su resultado es positivo?
+¿cercano a cero?¿Podríamos concluir que a mayor distancia del centro de
+distribución mayor tiempo de envío?</p></li>
+<li><p>Se supone que una orden con mayor prioridad debiera tener un
+envío más rápido, ¿Es así? Calcular con una consulta agrupada el
+promedio de dias de envío (<code>AVG(dias_t)</code>) según prioridad de
+la orden (<code>sales.order_priority</code>)</p></li>
+<li><p>Calcular de igual manera que en (1) la correlación entre dias de
+envío (<code>dias_t</code>) y unidades enviadas
+(<code>sales.units_sold</code>) y también la correlación entre dias de
+envío (<code>dias_t</code>) y utilidad generada de la orden
+(<code>sales.total_profit</code>), ¿se evidencia mayor correlación en
+estos últimos casos?</p></li>
+</ul>
+<h1 class="unnumbered" id="entrega-y-plazo">Entrega y Plazo</h1>
+<p>En un archivo ppt (Presentación de Power Point) enviar 1 captura de
+pantalla por cada pregunta (por ejemplo sección 1 y 2 son 3 capturas lo
+que hace un total de 6 capturas. Enviar el archivo con su nombre
+(nombreyapellido.ppt) a <code>jcarrasco@programbi.cl</code>.<br />
+Plazo de recepción: quinta (y penúltima) clase.</p>
+</body>
+</html>
