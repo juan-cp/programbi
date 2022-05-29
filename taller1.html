@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>taller1</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="center">
+<p><span class="smallcaps">ProgramBI - Curso SQL
+Básico/Intermedio</span></p>
+</div>
+<div class="center">
+<p><strong>Taller 1 - Ciudades del Mundo</strong></p>
+</div>
+<a href="https://drive.google.com/file/d/1RBcln52DHn4AHbbuUWd2wEGp_jKZeHIZ/view?usp=sharing">Taller 1 archivos y anexos</a>
+<h1 class="unnumbered" id="descripción">Descripción</h1>
+<p>El archivo <code>worldcitiespop.csv</code> contiene un amplio
+registro de ciudades a nivel mundial. Realizaremos distintas consultas
+sobre estos datos, pero en principio debemos identificar algunos de los
+campos relevantes: <code>Country</code> (código país), <code>City</code>
+(ciudad), <code>AccentCity</code> (nombre ciudad con caracteres
+especiales), <code>Region</code> (region del país a la que pertenece la
+ciudad, es un identificador, mas no la numeración real que pueda tener
+dicha región en el país), <code>Population</code> (población, no se
+tienen todos los datos), <code>Latitude</code> (<span
+class="math inline"> + 90</span> NP / <span
+class="math inline">0=</span> Ecuador / <span
+class="math inline"> − 90</span> SP), <code>Longitude</code>, (<span
+class="math inline"> − 180</span> a 0 al oeste del meridiano 0, 0 a
+<span class="math inline"> + 180</span> al este del meridiano 0)<br />
+Cargar los datos en una tabla en SQL Server y elaborar las consultas
+para analizar cada uno de los siguientes problemas</p>
+<h1 id="centro-de-chile">Centro de Chile</h1>
+<p>¿Es Santiago el centro de Chile? a partir de los datos determinar una
+ciudad representativa del centro del país. Para ello resolveremos
+primero las siguientes preguntas:</p>
+<ul>
+<li><p>Encontrar la latitud máxima y mínima del país (recuerde que para
+el caso de chile serán números negativos) y calcular el
+<code>punto medio</code> del país de norte a sur usando la fórmula
+<code>(longitud máx + longitud mín)/2</code> (sumar y dividir por 2,
+promedio simple)</p></li>
+<li><p>Almacenar el punto medio en una variable y utilizarla para
+encontrar las ciudades que se ubican en el rango de latitud
+<code>punto medio</code><span
+class="math inline">±</span><code>0.1</code></p></li>
+<li><p>Al analizar el campo <code>Population</code> en Chile, se aprecia
+que no todas las ciudades tienen este dato. De la muestra obtenida en
+(2), ¿Cuál(es) ciudad(es) tiene(n) el dato de población incluído?
+Concluya a partir de este filtro cuál es la ciudad centro de
+Chile.</p></li>
+</ul>
+<h1 id="los-conquistadores">Los conquistadores</h1>
+<p>¿Cuántas ciudades hay en Estados Unidos que llevan el nombre de una
+ciudad de Reino Unido?¿Cuántas ciudades hay en Colombia, Chile, Perú que
+lleven el nombre de una ciudad de España? ¿Cuántas ciudades hay en
+Brasil con nombre de una ciudad portuguesa? Calcular para estos 5 casos
+la proporción de ciudades coincidentes por sobre el total de ciudades
+del país y comparar la penetración relativa de los nombres.</p>
+<h1 class="unnumbered" id="entrega-y-plazo">Entrega y Plazo</h1>
+<p>En un archivo ppt (Presentación de Power Point) enviar 1 captura de
+pantalla por cada pregunta (por ejemplo sección 1 son 3 capturas y en la
+2 basta con que entregue una captura (cálculo ejecutado para 1 país ).
+Enviar el archivo con su nombre (nombreyapellido.ppt) a
+<code>jcarrasco@programbi.cl</code>.<br />
+Plazo de recepción: quinta (y penúltima) clase.</p>
+</body>
+</html>
