@@ -1,0 +1,1246 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ProgramBI - Curso SQL Server Básico / Intermedio</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cheatsheet/">
+
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      body{
+          
+          font-family:Poppins,sans-serif;
+
+      }
+      header {
+  position: sticky;
+  top: 0;
+}
+      
+    </style>
+</head>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script>
+    window.MathJax = {
+        jax: ["input/TeX", "output/SVG"],
+        extensions: ["tex2jax.js"],
+        SVG: {
+            useGlobalCache: false
+        }
+    }
+</script>
+<body>
+
+    <body class="bg-light">
+    
+        <header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
+          <div class="container-fluid d-flex align-items-center">
+            <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+                ProgramBI - Curso SQL Server Básico / Intermedio</h1>
+            <a href="index2.html" class="ms-auto link-light" hreflang="ar">
+                <img src="logo.png" width="50">
+            </a>
+          </div>
+        </header>
+
+
+<h2 id="introduccion-a-las-bases-de-datos" style="padding-top: 20px; ">Introducción a las bases de datos</h2>
+
+<p>Una Base de datos es un conjunto de datos pertenecientes a un mismo
+contexto y almacenados metodologicamente para su uso a futuro.</p>
+
+<p>Actualmente gracias al desarrollo tecnologico que se esta dando y a la
+gran cantidad de datos que se tienen, han surgido varias soluciones al
+almacenamiento de datos. Dichas soluciones se conocen formalmente como
+<strong>sistemas de gestion de bases de datos, o DBMS</strong> por sus siglas en
+inglés. Estos sistemas permiten gestionar las bases de datos, sus
+sub-componentes como tablas o consultas, y utilizan un lenguaje estándar
+de consulta llamado SQL que significa &quot;Lenguaje estructurado de
+consultas (Structured Query Language)&quot; Los principales Motores de bases
+que estan en el mercado son: ORACLE, MySQL, SQL Server, PostGreSQL,
+SQLite.</p>
+
+<h2 id="instalacion-de-dbms-en-maquina-local">Instalación de DBMS en máquina local</h2>
+
+<p>Los sistemas DBMS funcionan con un paradigma cliente-servidor, el cual
+es ampliamente frecuente en sistemas computacionales.</p>
+
+<p>En este caso, por medio de la instalación de SQL Server lo que haremos
+será transformar nuestro PC local en un servidor de SQL (vale la pena
+repetir: local y además limitado a las capacidades de nuestro PC). Para
+hacer peticiones a este servidor, instalaremos un programa de gestión de
+base de datos que actuará como cliente; es decir, en nuestro PC
+tendremos el servidor y el cliente instalado a la vez.</p>
+
+<p>Para este curso usaremos como servidor el SQL Server de Microsoft, y
+como clientes podremos usar SQL Server Management Studio (SSMS) o Azure
+Data Studio, los cuales procederemos a explicar su instalación en el PC
+local.</p>
+
+<h3 id="instalacion-del-servidor">Instalación del servidor</h3>
+
+<ol>
+<li><dl>
+<dt>Lo primero que haremos será transformar nuestro PC en un servidor</dt>
+<dt>local de SQL. Para ello descargamos de</dt>
+<dt><a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads">https://www.microsoft.com/es-es/sql-server/sql-server-downloads</a> la</dt>
+<dt>versión Express de SQL Server 2019:
+</dt>
+<dd>
+<img src="1.png" alt="image" style="width: 30vw; "/></dd>
+
+</dl></li>
+<li><p>En la ventana anterior, presionar descargar ahora.</p></li>
+<li><dl>
+<dt>Abrimos el archivo descargado y seleccionamos la opción &quot;Básica&quot; de</dt>
+<dt>instalación.
+</dt>
+<dd>
+<img src="2.png" alt="image" style="width: 30vw; "/></dd>
+
+
+</dl></li>
+<li><dl>
+<dt>Aceptamos los términos de la licencia
+</dt>
+<dd>
+<img src="3.png" alt="image" style="width: 30vw; "/></dd>
+
+
+</dl></li>
+<li><dl>
+<dt>Nos indicará la ruta donde se instalará SQL Server, le damos</dt>
+<dt>siguiente.
+</dt>
+<dd>
+<img src="4.png" alt="image" style="width: 30vw; "/></dd>
+
+
+</dl></li>
+<li><dl>
+<dt>El instalador empezará a descargar e instalar la plataforma.</dt>
+<dt>Asegurarse de tener una conexión estable para que el instalador</dt>
+<dt>proceda sin inconvenientes. Cuando el instalador haya terminado</dt>
+<dt>aparecerá la siguiente ventana
+</dt>
+<dd>
+<img src="5.png" alt="image" style="width: 30vw; "/></dd>
+
+
+</dl></li>
+<li><p>Se nos dá la opción de instalar SSMS inmediatamente, lo podemos
+hacer pulsando el botón &quot;Install SSMS&quot; que nos llevará a la página
+de descarga, y seguir de manera manual las instrucciones del próximo
+apartado.</p></li>
+</ol>
+
+<h3 id="instalacion-de-ssms">Instalación de SSMS</h3>
+
+<ol>
+<li><p>Descargamos el programa desde aquí (
+<a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15">Link de descarga </a>)<br/>
+<img src="6.png" alt="image" style="width: 30vw; " />
+</p></li>
+<li><p>Se iniciará la descarga del SQL Server Management Studio (archivo de
+más de 600 MB) Aceptamos los términos de la licencia y procedemos a
+instalar.</p></li>
+<li><dl>
+<dt>Al abrir SSMS nos aparecerá una ventana como la siguiente si la</dt>
+<dt>instalación es correcta. Importante que el programa reconozca como</dt>
+<dt>nombre del servidor el PC local, ya que eso indica que reconoce una</dt>
+<dt>instancia local de SQL server (instalada anteriormente según la</dt>
+<dt>primera parte de este documento). De ser así, basta con</dt>
+<dt>autenticación de Windows (en Authentication) para poder conectarse</dt>
+<dt>al servidor local.
+</dt>
+<dd>
+<img src="7.png" alt="image" style="width: 30vw; "/></dd>
+
+
+</dl></li>
+<li><p>Al presionar &quot;Connect&quot; ya estamos exitosamente conectados al
+servidor local de SQL y podremos trabajar en las actividades del
+curso.</p></li>
+</ol>
+
+<h3 id="instalacion-de-azure-data-studio">Instalación de Azure Data Studio</h3>
+
+<ol>
+<li><p>Ingresamos al sitio de descarga de Azure Data Studio
+<a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15">Link</a>
+ y
+bajamos la versión correspondiente a nuestro sistema.
+<br/>
+<img src="8.png" alt="image" style="width: 30vw; "/>
+</p></li>
+<li><p>Abrimos el instalador y se comenzará a instalar el programa.</p></li>
+<li><dl>
+<dt>Una vez instalado debemos crear una conexión con nuestro servidor</dt>
+<dt>local de SQL Server. Para ello en la ventana bienvenida de Azure</dt>
+<dt>Data Studio, seleccionamos la opción &quot;New Connection&quot;
+</dt>
+<dd>
+<img src="9.png" alt="image" style="width: 30vw; " /></dd>
+
+
+</dl></li>
+<li><p>Aparecera una ventana emergente donde ingresaremos los<br/>
+parámetros de la conexión:
+</p>
+<dd>
+<img src="10.png" alt="image" style="width: 30vw; "/>
+</dd>
+
+<p>A lo que respondemos:
+<code>Server=localhost / Authentication Type=Windows Authentication / Database=&lt;default&gt; / Server group =&lt;default&gt;</code>.</p></li>
+<li><dl>
+<dt>Una forma de chequear que el proceso haya sido correcto es revisando</dt>
+<dt>la pestaña Servers de Azure, donde debiera aparecer nuestro</dt>
+<dt>localhost conectado y con las subcarpetas de trabajo, tal como se</dt>
+<dt>muestra en la imagen:
+</dt>
+<dd>
+<img src="11.png" alt="image" style="width: 30vw; "/></dd>
+
+</dl></li>
+</ol>
+
+<h2 id="tablas">Tablas</h2>
+
+<p>Como objeto clave de una BBDD, Una tabla es un objeto que esta formado
+por columnas, las cuales están interrelacionadas a través de la
+información que contienen.</p>
+
+<p>En jerga de bases de datos a una columna se le conoce como campo,
+mientras que una fila se le conoce como registro.</p>
+
+<p>En una BBDD, las tablas tienen un nombre único. Una BBDD puede contener
+varias tablas, y las tablas estar relacionadas entre sí por campos que
+comparten, llaves (un tipo de campo que revisaremos más adelante) y
+relaciones de cardinalidad entre sus registros (que también veremos más
+adelante).</p>
+
+
+<p>El conjunto de tablas y relaciones en una BBDD se conoce como el Esquema de una BBDD y se puede representar gráficamente en un diagrama que se conoce como diagrama Entidad-Relación (como el que se muestra a continuación)
+</p>
+<dl>
+<dd>
+<img src="12.png" alt="image" style="width: 30vw; " /></dd>
+
+
+</dl>
+
+<h2 id="tipos-de-datos">Tipos de Datos</h2>
+
+<p>Las bases de datos en las que se puede consultar con SQL se les conoce
+como bases de datos relacionales, mientras que los datos que se
+almacenan en ellas son datos estructurados; es decir, corresponden a un
+tipo bien específico de dato que caerá en las siguientes categorías:</p>
+
+<ul>
+<li><p>Tipos Numéricos</p>
+
+<ul>
+<li><p><strong>Int:</strong> Número enteros, en un rango de <span class="math">\(-2^{31}\)</span> a <span class="math">\(2^{31}\)</span>.</p></li>
+<li><p><strong>Bigint:</strong> Número entero entre <span class="math">\(-2^{63}\)</span> y <span class="math">\(2^{63}\)</span></p></li>
+<li><p><strong>Bit:</strong> Para un número entero que puede ser 0 ó 1.</p></li>
+<li><p><strong>Float:</strong> Números decimales</p></li>
+</ul></li>
+<li><p>Tipos de Texto/Fecha</p>
+
+<ul>
+<li><p><strong>Char:</strong> Este tipo es para cadenas de longitud fija. Su
+longitud va desde 1 a 255 caracteres. Siempre se ocupara el
+largo que hayamos dado (añadiendo espacios en el caso que
+faltasen caracteres).</p></li>
+<li><p><strong>Varchar:</strong> Para una cadena de caracteres de longitud variable
+de hasta 8.060.</p></li>
+<li><p><strong>Nvarchar:</strong> Para una cadena de caracteres de longitud variable
+de hasta 4000, y soporta formato Unicode.</p></li>
+<li><p><strong>Text:</strong> Texto de longitud variable que puede tener hasta
+65.535 caracteres.</p></li>
+<li><p><strong>Date:</strong> Para almacenar fechas. El formato por defecto es
+yyyymmdd.</p></li>
+<li><p><strong>Datetime:</strong> Combinacion de fecha y hora.</p></li>
+</ul></li>
+</ul>
+
+<h2 id="declaraciones-ddl">Declaraciones DDL</h2>
+
+<p>Las declaraciones DDL o Data Definition Language corresponden a aquellas
+que intervienen de alguna manera el esquema de la BBDD o manipulan
+nuevos objetos adyacentes a las tablas. Las declaraciones DDL suelen
+empezar con un comando <code>CREATE</code> en caso de que se crean objetos, <code>ALTER</code>
+para modificarlos y <code>DROP</code> para borrarlos.</p>
+
+<p>Por ejemplo, al crear una base de datos se puede usar un comando
+<code>CREATE</code> como sigue:</p>
+
+<pre><code class="{.sql language="SQL"}">CREATE DATABASE mi_base_de_datos
+</code></pre>
+
+<p>Acto seguido puedo exigirle a SQL que apunte a esa base de datos de
+ahora en adelante para trabajar sobre ella:</p>
+
+<pre><code class="{.sql language="SQL"}">USE mi_base_de_datos
+</code></pre>
+
+<p>Use una declaración CREATE TABLE para especificar el diseño de su tabla:</p>
+
+<pre><code class="{.sql language="SQL"}">CREATE TABLE nombre-tabla (campo1 tipo1, campo2 tipo2 ... )
+</code></pre>
+
+<p>ALTER TABLE cambia la estructura de una tabla. Por ejemplo, puede
+agregar o eliminar columnas, crear o borrar índices, cambiar el tipo de
+columnas existentes o cambiar el nombre de las columnas o de la tabla en
+sí.</p>
+
+<pre><code class="{.sql language="SQL"}">ALTER TABLE nombre-tabla (campo1 tipo1, campo2 tipo2 ... )
+</code></pre>
+
+<p>También puede ir acompañado de borrar columnas:</p>
+
+<pre><code class="{.sql language="SQL"}">ALTER TABLE t2 DROP COLUMN c, DROP COLUMN d
+</code></pre>
+
+<p>Para borrar una tabla, usar comando DROP TABLE. Para vaciar usar
+TRUNCATE TABLE:</p>
+
+<pre><code class="{.sql language="SQL"}">DROP TABLE nombre-tabla 
+TRUNCATE TABLE nombre-tabla
+</code></pre>
+
+<p>Ojo: operaciones CREATE/ALTER/DROP requieren permisos de escritura</p>
+
+<h2 id="insercion-de-registros-y-populating">Inserción de registros y populating</h2>
+
+<p><code>INSERT</code> crea una fila con cada columna establecida en su valor
+predeterminado</p>
+
+<pre><code class="{.sql language="SQL"}">INSERT INTO tbl_name ( campos...) VALUES( valores...);
+</code></pre>
+
+<p>Es decir, se cargan una lista de campos determinados (que pueden ser
+todos) y sus valores respectivos. Un valor de un campo también se le
+conoce como <em>Instancia</em>.</p>
+
+<p>Para poblar tablas desde archivos externos, los datos deben respetar las
+convenciones geográficas del cliente(PC) que hace la carga.</p>
+
+<ul>
+<li><p>Las cadenas de texto siempre deben ir entre comillas.</p></li>
+<li><p>Por ejemplo las fechas en SQL son en formato yyyy-mm-dd. Deben ir
+entre comillas como cadenas de texto.</p></li>
+<li><p>Los números decimales separan el número con la parte decimal con un
+punto.</p></li>
+</ul>
+
+<p>Desde SSMS se pueden importar archivos excel, planos de texto (txt) o
+separados por comas (csv) por medio de un asistente. Acceder a un
+asistente se puede utilizando el <em>boton derecho del mouse sobre la base
+de datos <span class="math">\(\rightarrow\)</span> Import Data o Import Flat File.</em></p>
+
+<p>En el caso de Azure Data Studio, se puede importar instalando una
+extensión llamada <em>SQL Server Import</em> que permitirá hacer tareas
+similares al asistente de SSMS. Más info en <a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/sql-server-import-extension?view=sql-server-ver15">https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/sql-server-import-extension?view=sql-server-ver15</a></p>
+
+<h2 id="consultas-en-sql">Consultas en SQL</h2>
+
+<p>La sintaxis clásica de una consulta en SQL es la siguiente (vamos a
+revisar sus partes en las próximas slides)</p>
+
+<pre><code class="{.sql language="SQL"}">--Sintaxis consulta
+SELECT campo1, campo2, ...
+FROM tabla
+WHERE condicion
+ORDER BY campo1 ASC/DESC
+--Seleccionar toda una tabla
+SELECT * FROM tabla
+</code></pre>
+
+<p>Adicionalmente puedo copiar valores de una tabla_1 a otra tabla_2
+utilizando una sintaxis combinada de <code>INSERT</code> y <code>SQL</code>:</p>
+
+<pre><code class="{.sql language="SQL"}">--copia de tabla_1 a tabla_2
+INSERT INTO tabla_2 SELECT * FROM tabla_1
+</code></pre>
+
+<h2 id="condicionales-en-clausula-where">Condicionales en cláusula WHERE</h2>
+
+<p>La cláusula <code>WHERE</code> involucra condiciones. En general una condicion es
+una proposición lógica, es decir un enunciado cuyo valor es verdadero o
+falso. Siendo <code>WHERE</code> una instrucción en bloque (como <code>SELECT</code> también),
+evaluará qué registros de un campo cumplen con la condición, y los
+filtrará del bloque final.</p>
+
+<pre><code class="{.sql language="SQL"}">--CONDICIONALES
+--operadores
+WHERE campo &gt; valor -- mayor que
+WHERE campo &lt; valor --menor que
+WHERE campo &gt;= valor --mayor o igual
+WHERE campo &lt;= valor --menor o igual
+WHERE campo &lt;&gt; valor -- distinto
+WHERE campo = valor --igual
+WHERE campo LIKE patron (veremos en Seccion 2)
+WHERE campo IN (valor1, valor2...)--si el campo esta en un conjunto de valores
+WHERE campo BETWEEN rangomin AND rangomax --si el campo esta entre rangomin y rango max
+WHERE campo IS NULL -- filas en donde el campo seleccionado es null
+WHERE campo IS NOT NULL --filas donde el campo no es null (vacio)
+</code></pre>
+
+<p>Respecto a lo anterior, entenderemos los valores <code>NULL</code>, como un dato
+vacío que posee algún campo para un registro específico en un tabla. Es
+decir, una celda donde no hay nada (ni siquiera espacios en blanco, por
+lo que una celda en blanco podría no ser <code>NULL</code>; en general las celdas
+vacías mostrarán un <code>NULL</code> para evitar confusiones).</p>
+
+<p>Como <code>WHERE</code> evalúa proposiciones lógicas, sus valores de verdad pueden
+ser sujeto a los operadores tradicionales lógicos (de conjunción,
+disyunción, negación).</p>
+
+<pre><code class="{.sql language="SQL"}">-Operadores Logicos
+--operador AND
+SELECT campo1, campo2, ...
+FROM tabla
+WHERE condicion1 AND condicion2 AND condicion3...
+--operador OR
+SELECT campo1, campo2, ...
+FROM tabla
+WHERE condicion1 OR condicion2 OR condicion3...
+--operador NOT
+SELECT campo1, campo2, ...
+FROM tabla
+WHERE NOT condicion;
+</code></pre>
+
+<h2 id="comando-order-by">Comando ORDER BY</h2>
+
+<p>Cuando usa la instrucción <code>SELECT</code> para consultar datos de una tabla, el
+conjunto de resultados no se ordena. Significa que las filas del
+conjunto de resultados pueden estar en cualquier orden.</p>
+
+<p>Para ordenar el conjunto de resultados, agrega la cláusula <code>ORDER BY</code> a
+la instrucción <code>SELECT</code>. A continuación se ilustra la sintaxis de la
+cláusula <code>ORDER BY</code>:</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT 
+   (lista)
+FROM 
+   tabla_nombre
+WHERE ...
+ORDER BY columna1 ASC columna2 DESC
+</code></pre>
+
+<h2 id="comando-distinct">Comando DISTINCT</h2>
+
+<p>Dentro de una tabla, una columna a menudo contiene muchos valores
+duplicados; a veces solo desea enumerar los valores distintos. El
+comando <code>DISTINCT</code> elimina repeticiones de una tupla de datos en una
+fila.</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT DISTINCT columna1, columna2, ...
+FROM tabla_nombre;
+</code></pre>
+
+<h1 id="clase-2-de-los-wildcards-a-las-vistas">Clase 2: de los Wildcards a las Vistas</h1>
+
+<h2 id="wildcards-o-patrones">Wildcards o patrones</h2>
+
+<p>Como mencionamos anteriormente, el comparador <code>LIKE</code> se utiliza para
+encontrar patrones o declarar filtros que permiten de forma eficiente
+obtener sub-conjuntos de los datos. Para representar patrones que serán
+utilizados en un comparador <code>LIKE</code>, se utilizan los siguientes
+caracteres:</p>
+
+<ul>
+<li><p><code>%</code>: Representa cero o más caracteres</p></li>
+<li><p><code>_</code>: Representa 1 sólo caracter</p></li>
+<li><p><code>[]</code>: Representa un conjunto o intervalo de caracteres, según lo que
+se especifique dentro de los corchetes.</p></li>
+</ul>
+
+<p>De esta manera podemos encontrar algunos ejemplos como los siguientes:</p>
+
+<pre><code class="{.sql language="SQL"}">WHERE campo LIKE 'a%' --Busca cualquier valor que comience con &quot;a&quot;
+WHERE campo LIKE '%a' --Encuentra cualquier valor que termine con &quot;a&quot;
+WHERE campo LIKE '%or%' --Busca cualquier valor que tenga &quot;o&quot; en cualquier posicion
+WHERE campo LIKE '_r%' --Encuentra cualquier valor que tenga &quot;r&quot; en la segunda posicion
+
+WHERE campo LIKE 'a__%' --Busca cualquier valor que comience con &quot;a&quot; y tenga al menos 3 caracteres de longitud
+WHERE campo LIKE 'a%o'  --Busca cualquier valor que comience con &quot;a&quot; y termine con &quot;o&quot;
+</code></pre>
+
+<h2 id="clausula-group-by-y-funciones">Cláusula GROUP BY y funciones</h2>
+
+<p>La declaración <code>GROUP BY</code> agrupa las filas que tienen los mismos valores
+en un campo determinado, como &quot;encontrar el número de clientes en cada
+país&quot;. La instrucción <code>GROUP BY</code> se utiliza a menudo con funciones de
+agregado ( <code>COUNT(), MAX(), MIN(), SUM(), AVG()</code>) y agrupando el
+conjunto de resultados de una o más columnas.</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT *, funcion de agregado
+FROM tabla
+WHERE condicion
+GROUP BY *
+</code></pre>
+
+<p>Nota: importante que al especificar una función de agregado según un
+lote de campos previos, el lote de campos deberá ser escrito en GROUP
+BY, que es lo que se señala con * en la query anterior.</p>
+
+<h2 id="llave-primaria-y-campo-autoincremental">Llave primaria y campo autoincremental</h2>
+
+<p>Una llave primaria (o <em>primary key</em>, <code>PK</code>) es un campo (o combinación de
+campos) que identifica de manera única a cada fila en una tabla</p>
+
+<pre><code class="{.sql language="SQL"}">CREATE TABLE nombre(f1 t1, f2 t2, PRIMARY KEY(campo_llave))
+--alternativa
+CREATE TABLE nombre(f1 t1 PRIMARY KEY, f2 t2...
+</code></pre>
+
+<p>La forma general de crear una tabla con un campo autoincremental es la
+siguiente</p>
+
+<pre><code class="{.sql language="SQL"}">CREATE TABLE nombre(f1 int IDENTITY, f2 t2,...)
+</code></pre>
+
+<p>En el caso anterior, el campo <code>f1</code> es autoincremental, y siempre es un
+tipo de dato <code>int</code>.</p>
+
+<h2 id="borrar-y-actualizar-registros">Borrar y actualizar registros</h2>
+
+<p>Como parte de las operaciones de escritura (que deben estar debidamente
+autorizadas) se pueden borrar filas o actualizar filas según una
+condicion en particular. La sintaxis de estas operaciones es la
+siguiente:</p>
+
+<pre><code class="{.sql language="SQL"}">--Borrar registro
+DELETE FROM tabla WHERE condicion
+-- Actualizar registro
+UPDATE tabla SET campo1=..,campo2=..
+WHERE condicion
+</code></pre>
+
+<p>Recomendación: trabaje con esta programación en ambientes de desarrollo,
+ya que puede perder datos irreversiblemente si lo hace en un ambiente de
+producción.</p>
+
+<p>Nota: Cuando usamos comando <code>DELETE</code> en nuestras tablas es
+necesariamente un cambio irreversible. Mientras que algunas operaciones
+con <code>UPDATE</code> pueden ser reversibles (matemáticamente u
+operacionalmente); por ejemplo, duplicar una fila con un <code>UPDATE</code> puede
+ser deshecho con otro <code>UPDATE</code> que divida a la mitad.</p>
+
+<h2 id="declaracion-de-variables-y-funciones">Declaración de Variables y Funciones</h2>
+
+<p>Podemos usar la instrucción <code>DECLARE</code> para indicar o declarar una o más
+variables. A partir de ahí, podemos utilizar el comando <code>SET</code> para
+inicializar o asignar un valor a la variable.</p>
+
+<pre><code class="{.sql language="SQL"}">DECLARE @variable tipo
+SET @variable=valor
+</code></pre>
+
+<p>Una función definida por el usuario es una rutina que acepta parámetros,
+realiza una acción, como un cálculo complejo, y devuelve el resultado de
+esa acción como un valor.</p>
+
+<p><span class="math">\[inputs(x_1,x_2,\ldots)\rightarrow f(x_1,x_2,\ldots)\rightarrow output\]</span>
+El valor de retorno puede ser un valor escalar (único) o una tabla. Una
+sintaxis para una <em>función escalar</em> es la siguiente:</p>
+
+<pre><code class="{.sql language="SQL"}">CREATE FUNCTION nombre_funcion(par1 t1,par2 t2...)
+RETURNS tipo_variable_salida 
+BEGIN
+....
+returns @variable_salida
+END
+</code></pre>
+
+<p>Nota sobre el código anterior: en resumen, creamos una variable de
+salida dentro del código de la función, que va a recibir el resultado
+del procedimiento que ejecute la función.</p>
+
+<h2 id="condicionales-usando-case-when">Condicionales usando CASE-WHEN</h2>
+
+<p>La instrucción <code>CASE</code> pasa por condiciones y devuelve un valor cuando
+ante la primera condición que se cumpla. Entonces, una vez que una de
+las condiciones es verdadera, dejará de leer y devolverá el resultado.
+Si no se cumple ninguna condición, devuelve el valor de la cláusula
+<code>ELSE</code>. Una sintaxis para un <code>CASE-WHEN</code> es la siguiente:</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT campo1, campo2, ....
+CASE WHEN condicion1 THEN resultado1
+WHEN condicion2 THEN resultado2 
+
+...
+
+ELSE resultadoN
+END
+FROM tabla
+</code></pre>
+
+<h2 id="introduccion-a-las-vistas">Introducción a las Vistas</h2>
+
+<p>En SQL, una vista es una tabla virtual basada en el conjunto de
+resultados de una declaración SQL. Una vista contiene filas y columnas,
+como una tabla real. Los campos de una vista son campos de una o más
+tablas reales de la base de datos.</p>
+
+<p>Puede agregar sentencias y funciones SQL a una vista y presentar los
+datos como si vinieran de una sola tabla. Se crea una vista con la
+instrucción <code>CREATE VIEW</code>. También se puede modificar una vista (con
+<code>ALTER VIEW</code>) o eliminarla con <code>DROP VIEW</code></p>
+
+<pre><code class="{.sql language="SQL"}">CREATE VIEW nombre_vista AS
+..query con inputs de vista
+--SE PUEDE USAR ALTER/DROP
+DROP VIEW nombre_vista
+ALTER VIEW nombre_vista AS
+...query con cambios
+</code></pre>
+
+<p>Notas importantes sobre las vistas:
+- Si se modifican los datos de una tabla, la vista alimentada por dicha
+tabla se actualizará automáticamente (ya que es una query almacenada que
+se ejecuta cuando se usa).
+- Puedo ver cómo está constituída una vista en SSMS, botón derecho en la
+vista <span class="math">\(\rightarrow\)</span> opción &quot;Design&quot;.</p>
+
+<h1 id="clase-3-subquerys-tablas-temporales-y-consultas-de-cruce">Clase 3: Subquerys, Tablas Temporales y Consultas de cruce</h1>
+
+<h2 id="subconsultas">Subconsultas</h2>
+
+<p>Una subconsulta es una consulta SQL anidada dentro de una consulta más
+grande. Una subconsulta puede ocurrir en:</p>
+
+<ul>
+<li><p>Una cláusula <code>SELECT</code></p></li>
+<li><p>Una cláusula <code>FROM</code></p></li>
+<li><p>Una cláusula <code>WHERE</code></p></li>
+</ul>
+
+<p>La consulta interna se ejecuta primero antes que su consulta principal
+para que los resultados de una consulta interna se puedan pasar a la
+consulta externa.</p>
+
+<pre><code class="{.sql language="SQL"}">--Sintaxis 
+SELECT subconsulta.columnas
+FROM (SELECT columnas FROM tabla WHERE ...) as subconsulta
+WHERE ....
+</code></pre>
+
+<pre><code class="{.sql language="SQL"}">--Subquerys en WHERE
+SELECT ... FROM... WHERE campo IN (Subquery)
+--Subquery en SELECT
+SELECT campo=subquery FROM .... WHERE....
+</code></pre>
+
+<p>Observación: es importante referenciar la subconsulta y sus campos con
+el comando <code>as</code>, ya que al requerirla después en el <code>SELECT</code> de afuera
+debemos llamarla por sus nombres.</p>
+
+<h2 id="tablas-temporales">Tablas Temporales</h2>
+
+<p>Permiten generar una tabla a partir de una consulta. Se le denomina
+tabla temporal por que queda almacenada en memoria caché (temporal)
+mientras la sesión está abierta o el servidor permanece corriendo; una
+vez cerrada la sesión o apagado el servidor, la tabla desaparece con sus
+datos ingestados. La sintaxis es la siguiente:</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT ....
+INTO #tablatemporal
+FROM ...
+WHERE ...
+
+</code></pre>
+
+<p>Nota: usar un # para acceso local, ## para acceso global
+<strong>Importante:</strong> La tabla temporal siempre quedará en una BBDD temporal
+del servidor que se llama <code>tempdb</code>; no es un objeto que quede en la BBDD
+que estamos usando.</p>
+
+<h2 id="llaves-foraneas">Llaves Foráneas</h2>
+
+<p>Una clave foránea es una columna o grupo de columnas de una tabla que
+contiene valores que coinciden con la clave primaria de otra tabla. Las
+claves foráneas se utilizan para unir tablas.</p>
+
+<p>Generalmente las llaves foráneas se utilizan para construir referencias
+en tablas de paso (es decir, tablas que consolidan registros que
+relacionan 2 o más tablas).</p>
+
+<pre><code class="{.sql language="SQL"}">create table tabla2 (campo1 tipo1, campo2 tipo2, ...campollave REFERENCES tabla1(campollave))
+</code></pre>
+
+<h2 id="consultas-de-cruce">Consultas de Cruce</h2>
+
+<h3 id="inner-join">INNER JOIN</h3>
+
+<p>Esta expresión selecciona registros que tienen valores coincidentes en
+ambas tablas.</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT columna(s)
+FROM tabla1
+INNER JOIN tabla2
+ON tabla1.columna_pivote = tabla2.columna_pivote;
+</code></pre>
+
+<h3 id="left-join">LEFT JOIN</h3>
+
+<p>Devuelve todos los registros de la tabla izquierda (tabla1) y los
+registros coincidentes de la tabla derecha (tabla2). El resultado es 0
+registros del lado derecho, si no hay coincidencia.</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT columna(s)
+FROM tabla1
+LEFT JOIN tabla2
+ON tabla1.columna_pivote= tabla2.columna_pivote;
+</code></pre>
+
+<h3 id="right-join">RIGHT JOIN</h3>
+
+<p>Devuelve todos los registros de la tabla derecha (tabla2) y los
+registros coincidentes de la tabla izquierda (tabla1). El resultado es 0
+registros del lado izquierdo, si no hay coincidencia.</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT columna(s)
+FROM tabla1
+RIGHT JOIN tabla2
+ON tabla1.columna_pivote = tabla2.columna_pivote;
+</code></pre>
+
+<h3 id="full-join">FULL JOIN</h3>
+
+<p>Devuelve todos los registros cuando hay una coincidencia en los
+registros de la tabla izquierda (tabla1) o derecha (tabla2).</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT columna(s)
+FROM tabla1
+FULL JOIN tabla2
+ON tabla1.columna_pivote = tabla2.columna_pivote
+WHERE condicion
+</code></pre>
+
+<h2 id="union-de-querys">Unión de querys</h2>
+
+<p>Con el comando <strong>UNION ALL</strong> puedo unir el resultado de una o varias
+consultas a mismos campos. Observación: los campos se unen incluso si
+están duplicados.</p>
+
+<pre><code class="{.sql language="SQL"}">SELECT columna(s) FROM tabla1 
+UNION ALL 
+SELECT columna(s) FROM tabla2;
+</code></pre>
+
+<h2 id="manos-a-la-obra-ejercicio-1">Manos a la obra: Ejercicio # 1</h2>
+
+<p>&quot;Arriendo Seguro S.A&quot; es una de las asociaciones encargadas de
+administrar el proceso de arrendar casas en Santiago. Para evitar las
+molestias de cobranzas para los propietarios ellos se encargan del
+cobro, por lo cual han diseñado el siguiente modelo de datos, con el fin
+de obtener toda la información necesaria y llevar el control del
+proceso.</p>
+
+<ol>
+<li><p>Cree las tablas e ingrese datos acordes a cada una de ellas (ver
+anexos)</p></li>
+<li><p>Qué Casas están en la comuna de Macul</p></li>
+<li><p>Muestre cantidad adeudada por cada arrendatario</p></li>
+<li><p>Muestre a los arrendatarios con deuda mayor a 100000</p></li>
+<li><p>Cantidad de casas por comunas</p></li>
+<li><p>Deudas por dueño</p></li>
+<li><p>Ordenar 6) por deuda de mayor a menor</p></li>
+</ol>
+
+<dl>
+<dt><strong>Modelo ERD</strong>
+</dt>
+<dd>
+<img src="modeloER.png" alt="image" style="width: 30vw"/></dd>
+
+
+</dl>
+
+<p><strong>Tabla Arrendatario:</strong><br/>
+
+
+<pre><code class="{.sql language="SQL"}">
+
+INSERT INTO arrendatario
+VALUES ('11246890-4','Emilio','Gaete')
+INSERT INTO arrendatario
+VALUES ('9654789-k','Sulema','Garrido')
+INSERT INTO arrendatario
+VALUES ('5345678-8','Marcos','Urrutia')
+INSERT INTO arrendatario
+VALUES ('5432345-6','Tamara','Romero')
+INSERT INTO arrendatario
+VALUES ('1243235-8','Liliana','Sotela')
+INSERT INTO arrendatario
+VALUES ('6789765-0','Francisco','Rodriguez')
+INSERT INTO arrendatario
+VALUES ('7987657-9','Carla','Matus')
+INSERT INTO arrendatario
+VALUES ('12349840-4','Melissa','Torres')
+
+Select * FROM Arrendatario
+
+</code></pre>
+
+<p><strong>Tabla Arrienda:</strong><br/>
+
+<pre><code class="{.sql language="SQL"}">
+
+INSERT INTO arrienda
+VALUES ('11246890-4','1', 20000 ,'13678567-9')
+INSERT INTO arrienda
+VALUES ('9654789-k','2', 34000 ,'12567298-5')
+INSERT INTO arrienda
+VALUES ('5345678-8','3',123000, '11876984-2')
+INSERT INTO arrienda
+VALUES ('5432345-6','4',0,'8765432-1')
+INSERT INTO arrienda
+VALUES ('1243235-8','5',320000,'8647299-k')
+INSERT INTO arrienda
+VALUES ('6789765-0','6',87000,'10234567-5')
+INSERT INTO arrienda
+VALUES ('7987657-9','7',0,'6783456-7')
+INSERT INTO arrienda
+VALUES ('12349840-4','8',100000,'7890987-3')
+INSERT INTO arrienda
+VALUES ('11246890-4','9',145000,'13678567-9')
+INSERT INTO arrienda
+VALUES ('9654789-k','10',67000,'12567298-5')
+INSERT INTO arrienda
+VALUES ('9654789-k','11',0,'8765432-1')
+INSERT INTO arrienda
+VALUES ('1243235-8','12',187000,'8647299-k')
+
+
+SELECT * FROM arrienda
+
+
+</code></pre>
+
+<p><strong>Tabla Casa:</strong><br/>
+
+<pre><code class="{.sql language="SQL"}">
+INSERT INTO casa
+VALUES (1,'13678567-9','2243','Las Torres', 'Macul')
+INSERT INTO casa
+VALUES (2,'12567298-5','123','Guillermo Mann', 'Nunoa')
+INSERT INTO casa
+VALUES (3,'11876984-2','5467','P.de Valdivia', 'Nunoa')
+INSERT INTO casa
+VALUES (4,'8765432-1','7485', 'Los Olmos', 'Macul')
+INSERT INTO casa
+VALUES (5,'8647299-k','0876', 'Los Platanos', 'Quilicura')
+INSERT INTO casa
+VALUES (6,'10234567-5','5546', 'Los Espinos', 'San Ramon')
+INSERT INTO casa
+VALUES (7,'6783456-7','6657', 'Zañartu', 'Recoleta')
+INSERT INTO casa
+VALUES (8,'7890987-3','4059', 'Los Alerces', 'Maipu')
+INSERT INTO casa
+VALUES (9,'13678567-9','0987','Av.Grecia', 'Macul' )
+INSERT INTO casa
+VALUES (10,'12567298-5','7657','Los Trucados', 'Nunoa')
+INSERT INTO casa
+VALUES (11,'8765432-1','778', 'Almirante la Torre', 'Maipu')
+INSERT INTO casa
+VALUES (12,'8647299-k','7854', 'Irarrazaval', 'Nunoa')
+INSERT INTO casa
+VALUES (13,'6783456-7','4444', 'Marathon', 'Peñaflor')
+INSERT INTO casa
+VALUES (14,'7890987-3','3335', 'Manuel de Salas', 'Santiago')
+
+SELECT * FROM casa
+
+</code></pre>
+
+<p><strong>Tabla Dueño:</strong><br/>
+
+<pre><code class="{.sql language="SQL"}">
+INSERT INTO dueno
+VALUES ('13678567-9','Carlos','Gutty')
+INSERT INTO dueno
+VALUES ('12567298-5','Cristian','fuentes')
+INSERT INTO dueno
+VALUES ('11876984-2','Maria','Mercedes')
+INSERT INTO dueno
+VALUES ('8765432-1','Gloria','Sura')
+INSERT INTO dueno
+VALUES ('8647299-k','Patricio','Rojas')
+INSERT INTO dueno
+VALUES ('10234567-5','Leonardo','Opazo')
+INSERT INTO dueno
+VALUES ('6783456-7','Silvia','Hernandez')
+INSERT INTO dueno
+VALUES ('7890987-3','Eduardo','Lizama')
+
+SELECT * FROM dueno
+
+</code></pre>
+
+
+<h3 id="observaciones">Observaciones</h3>
+
+<p>Comentar que al montar el esquema se debe hacer en <strong>orden de
+dependencias</strong> (de menor a mayor); por ejemplo la tabla <code>casa</code> depende
+de 1 tabla (ver diagrama ERD), mientras que <code>arrienda</code> depende de 2
+tablas, y <code>arrendatario/dueno</code> dependen de 0 tablas. De esta manera, se
+crean <code>arrendatario/dueno</code> primero, luego <code>casa</code> y finalmente
+<code>arrienda</code>:</p>
+
+<pre><code class="{.sql language="SQL"}">-- El orden SI IMPORTA!
+
+CREATE TABLE Arrendatario (Rut_A varchar(10) PRIMARY KEY, 
+Nombre varchar(20), 
+Apellido varchar(20))
+
+CREATE TABLE dueno (Rut_D varchar(10) PRIMARY KEY, 
+Nombre varchar(20), 
+Apellido varchar(20))
+
+CREATE TABLE casa (Id_Casa int PRIMARY KEY, 
+Rut_D varchar(10) REFERENCES dueno(RUT_D), 
+Numero int, 
+Calle varchar(20), 
+Comuna varchar(20))
+
+CREATE TABLE Arrienda (Rut_A varchar(10) REFERENCES Arrendatario(Rut_A), 
+Id_Casa int REFERENCES casa(Id_Casa), 
+Deuda int, 
+Rut_D varchar(10) REFERENCES dueno(Rut_D))
+</code></pre>
+
+<p>La ingesta de datos debe hacerse en el mismo orden.</p>
+
+<h1 id="clase-4-comenzando-el-nivel-intermedio">Clase 4: Comenzando el nivel intermedio</h1>
+
+<h2 id="funciones-tabulares-y-multisentencia">Funciones Tabulares y Multisentencia</h2>
+
+<p>Como vimos en la sección anterior, una función puede tener un output
+escalar (valor único) o vectorial (entrega como resultado una tabla). A
+este último tipo se le conoce como <strong>función tabular</strong>.</p>
+
+<p>La sintaxis para crear una función tabular es similar a lo revisado en
+clases anteriores, solo que como resultado se obtiene una tabla:</p>
+
+<pre><code class="{.sql language="SQL"}">CREATE FUNCTION nombre_funcion (@param1 tipo1 ..)
+RETURNS TABLE
+AS
+RETURN
+(...codigo para generar tabla...)
+</code></pre>
+
+<p>Además, podemos crear una tabla que sea definida en una función, y que
+por ende usará más comandos que un <code>SELECT</code>, sino también
+<code>INSERT, DELETE, UPDATE,</code> etc. A este tipo de bloques se les denomina
+<strong>funciones multisentencia:</strong></p>
+
+<pre><code class="{.sql language="SQL"}">CREATE FUNCTION nombre_funcion (@param1 tipo1 ....)
+RETURNS @tabla_retorna table(campos a retornar )
+AS BEGIN
+    INSERT INTO @tabla retorna
+    SELECT ...
+    RETURN
+END
+</code></pre>
+
+<h2 id="triggers">Triggers</h2>
+
+<p>Un Trigger o desencadenador es un tipo de procedimiento almacenado que
+se ejecuta automáticamente cuando se produce un evento de Lenguaje de
+Manipulación de Datos (DML), o sea cuando se ejecuta un
+<code>INSERT, UPDATE o DELETE</code> en una tabla o un evento de Lenguaje de
+Definición de Datos (DDL) por ejemplo un <code>DROP TABLE</code>.</p>
+
+<p>Un gatillo se activa cuando ocurre un evento, por ende es condicionado a
+que el evento ocurra. El gatillo se puede activarse antes o después de
+que el evento ocurra, aunque para nivel intermedio de SQL consideramos
+gatillos con activación posterior a la ocurrencia del evento.</p>
+
+<p>Para crear un Trigger, usar la siguiente sintaxis:</p>
+
+<pre><code>CREATE TRIGGER nombre_trigger
+ON tabla_inicial FOR tipo_evento
+AS
+BEGIN
+...
+END
+</code></pre>
+
+<p>En este caso el tipo de evento puede ser un DML o DDL, para los DML
+seria <code>INSERT/UPDATE/DELETE</code>. El evento que activa el gatillo entregará
+un objeto <code>inserted/updated/deleted</code> que corresponderá a una tabla
+resultante o que recibe la acción: por ejemplo, si quiero gatillar una
+acción a partir de una inserción realizada, puedo obtener sus
+características llamando al objeto <code>inserted</code>.</p>
+
+<p>Los triggers pueden ser modificados con <code>ALTER TRIGGER</code> y eliminados con
+<code>DROP TRIGGER</code>.</p>
+
+<h2 id="ejecucion-y-programacion-en-sql">Ejecución y Programación en SQL</h2>
+
+<p>Una ventaja importante de SQL es que no sólo es un lenguaje de consulta,
+sino también un lenguaje de programación: podemos crear programas que se
+ejecutan línea por línea, pueden iterar, agregar condicionales, etc.</p>
+
+<p>En SQL Server podemos imponer condiciones sobre la ejecución de una
+instrucción SQL. La instrucción SQL que sigue a una palabra clave <code>IF</code> y
+su condición se ejecuta si se cumple la condición. La palabra clave
+<code>ELSE</code> opcional introduce otra instrucción SQL que se ejecuta cuando no
+se cumple la condición <code>IF</code>:</p>
+
+<pre><code class="{.sql language="SQL"}">IF &lt;condicion&gt;
+    BEGIN
+        Ejecucion ...
+    END
+ELSE
+    BEGIN
+        Ejecucion ...
+    END
+</code></pre>
+
+<p>Así mismo podemos almacenar conjuntos de instrucciones y ejecutarlas
+cuando queramos. Esto se puede hacer por medio de un <strong>Procedimiento
+Almacenado</strong>: si tiene una consulta SQL que escribe una y otra vez o
+tareas de DML, guárdela como un procedimiento almacenado y luego llámela
+para ejecutarla.</p>
+
+<p>También se pueden pasar parámetros a un procedimiento almacenado, como
+una función (y recalcamos &quot;como&quot;, ya que un procedimiento no exige
+retornar valores):</p>
+
+<pre><code class="{.sql language="SQL"}">--sintaxis
+CREATE PROCEDURE nombre_procedimiento (@param1 tipo1 ,
+@param2 tipo2 ...)
+AS
+BEGIN
+...
+END
+--ejecute el procedimiento 
+EXEC nombre_procedimiento
+</code></pre>
+
+<h2 id="cursores">Cursores</h2>
+
+<p>Una introducción a los objetos iterativos en programación en SQL son los
+cursores. El cursor es un objeto de base de datos para recuperar datos
+de un conjunto de resultados una fila a la vez, en lugar de los comandos
+vistos hasta ahora que operan en todas las filas del conjunto de
+resultados a la vez. En consecuencia, <strong>el cursor es el unico objeto que
+recorre una consulta línea por línea.</strong></p>
+
+<pre><code class="{.sql language="SQL"}">DECLARE nombre_cursor CURSOR
+FOR especificacion_consulta
+--activar_cursor
+OPEN nombre_cursor
+--recorrer fila por fila
+FETCH NEXT FROM nombre:cursor INTO variables_cursor
+WHILE @@FETCH_STATUS = 0
+    BEGIN
+    ...
+    FETCH NEXT FROM nombre:cursor INTO variables_cursor
+    END
+CLOSE nombre_cursor --cierra cursor
+DEALLOCATE nombre_cursor -- desposicionar
+</code></pre>
+
+<h2 id="ingesta-de-datos-desde-codigo">Ingesta de datos desde código</h2>
+
+<p>Una carga de archivo plano con separadores puede hacerse usando el
+asistente (en SSMS) pero también por medio de instrucciones en SQL. Para
+ello utilizamos el comando <code>BULK INSERT</code></p>
+
+<pre><code class="{.sql language="SQL"}">BULK INSERT tabla_receptora
+FROM 'ruta_archivo'
+WITH(FIELDTERMINATOR='sep_columnas',
+ROWTERMINATOR='sep_filas',
+FIRSTROW='fila_de_partida')
+</code></pre>
+
+<p>Algunos detalles importantes de ésta instruccion:</p>
+
+<ul>
+<li><p>Generalmente el <code>FIELDTERMINATOR</code> son comas, mientras que el
+<code>ROWTERMINATOR</code> es un salto de línea (representado por <code>\n</code>).</p></li>
+<li><p><code>BULK INSERT</code> como instrucción carga los datos en el formato que
+están en el archivo de origen; por ende, debemos preocuparnos de que
+los datos vengan en el formato correcto y consistente con la tabla
+donde se hara la ingesta. Si los datos no vienen en un formato
+consistente con la tabla, pueden en primer lugar cargarse en una
+tabla temporal como texto (sólo campos <code>varchar(max)</code>) y luego
+utilizar funciones de conversion (tema a revisar sección 5)</p></li>
+</ul>
+
+<h1 id="clase-5-funciones-especificas">Clase 5: Funciones específicas</h1>
+
+<h2 id="comandos-de-conversion-e-iif">Comandos de conversión e IIF</h2>
+
+<p>La función CONVERT () convierte un valor (de cualquier tipo) en un tipo
+de datos específico.</p>
+
+<pre><code class="{.sql language="SQL"}">CONVERT(tipodato, dato)
+-- sintaxis alternativa
+CAST(valor AS tipo_datos)
+</code></pre>
+
+<p>Además de los comandos case-when, existe una sintaxis simple para un if
+dentro de un campo determinado, para esto se usa el comando IIF</p>
+
+<pre><code class="{.sql language="SQL"}">IF(condicion, valor_if_true, valor_if_false)
+</code></pre>
+
+<p>Una forma astuta de reemplazar el siguiente case-when</p>
+
+<pre><code>case when var=x then 'a'
+when var=y then 'b' 
+else 'c'
+end
+</code></pre>
+
+<p>Es la siguiente:</p>
+
+<pre><code>iif(var=x,'a',iif(var=y,'b','c'))
+</code></pre>
+
+<p>Es decir podemos anidar para aprovechar la sintaxis resumida de la
+instruccion <code>iif</code>.</p>
+
+<h2 id="funciones-de-textofecha">Funciones de Texto/Fecha</h2>
+
+<p>Existen una gran cantidad de funciones para operar con texto en SQL, que
+están ampliamente documentadas. Aquí mencionaremos las más importantes:</p>
+
+<ul>
+<li><p><code>CHARINDEX()</code>: La función <code>CHARINDEX()</code> busca una subcadena en una
+cadena y devuelve la posición <code>CHARINDEX(substring, string, start)</code></p></li>
+<li><p><code>CONCAT:</code> La función <code>CONCAT()</code> agrega dos o más cadenas juntas.
+<code>CONCAT(string1, string2, ...., string_n)</code></p></li>
+<li><p><code>LEFT/RIGHT</code>: La función <code>LEFT ()/RIGHT ()</code> extrae varios caracteres
+de una cadena (empezando por la izquierda/derecha).
+<code>LEFT/RIGHT(string, no_caracteres)</code></p></li>
+<li><p><code>LTRIM/RTRIM</code> elimina los espacios iniciales de una cadena.<br/>
+<code>LTRIM/RTRIM(string)</code></p></li>
+<li><p><code>REPLACE:</code> reemplaza todas las apariciones de una subcadena dentro
+de una cadena, con una nueva subcadena.
+<code>REPLACE(string, vieja_subcadena, nueva_subcadena)</code></p></li>
+<li><p><code>STUFF</code>: elimina una parte de una cadena y luego inserta otra parte
+en la cadena, comenzando en una posición especificada.<br/>
+<code>STUFF(string, partida, largo, nuevo_string)</code></p></li>
+<li><p><code>LOWER/UPPER</code> : lleva todo a minúsculas o mayúsculas respectivamente</p></li>
+<li><p><code>SUBSTRING:</code> La función extrae algunos caracteres de una cadena.
+<code>SUBSTRING(string, partida, largo)</code></p></li>
+</ul>
+
+<p>Análogamente, entre las funciones de fecha a destacar tenemos:</p>
+
+<ul>
+<li><p><code>CURRENT_TIMESTAMP</code> entrega la fecha y hora actual</p></li>
+<li><p><code>DATEDIFF(unidad, fecha1, fecha2)</code> entrega la diferencia entre 2
+fechas en la unidad especificada (por ejemplo 'd' días, 'm' meses,
+'yy' años, 'ww' semanas, etc.)</p></li>
+<li><p><code>DATEADD(unidad, cantidad, fecha)</code> agrega a la fecha una cantidad de
+unidades de fecha (análogo a anterior)</p></li>
+<li><p><code>EOMONTH(fecha,meses_agregar)</code>, entrega la fecha de fin de mes para
+una cantidad de meses atras (-) o adelante (+); si quiere el fin del
+mes actual, <code>meses_agregar=0</code></p></li>
+<li><p><code>DAY(),MONTH(),YEAR()</code> obtiene día, mes, y año de una fecha en
+particular.</p></li>
+<li><p><code>ISDATE()</code> permite verificar si un texto es fecha o no.</p></li>
+<li><p><code>@@DATEFIRST</code> es una constante del sistema que define cual es el
+primer día de la semana.</p></li>
+<li><p><code>DATEPART(unidad,fecha)</code> entrega una parte de la fecha según
+definición. Por ejemplo para saber qué día de la semana es, colocar
+'dw'</p></li>
+</ul>
+
+<h2 id="instrucciones-dinamicas">Instrucciones Dinámicas</h2>
+
+<p>Se puede ejecutar una instruccion SQL a partir de una cadena de texto
+que esté parametrizada</p>
+
+<pre><code class="{.sql language="SQL"}">EXEC ('Instruccion como cadena de texto')
+</code></pre>
+
+<p>NOTA: esto habilita para crear instrucciones dinámicas que puedan usar
+funciones de texto.</p>
+
+<h2 id="consultando-al-esquema">Consultando al esquema</h2>
+
+<p>Lo anterior puede usarse para hacer subrutinas que recorran toda la
+BBDD. Para obtener información de la BBDD que estamos usando, podemos
+consultar al <code>INFORMATION_SCHEMA</code></p>
+
+<pre><code class="{.sql language="SQL"}">--obtiene tablas
+SELECT * FROM nombre_bbdd.INFORMATION_SCHEMA.TABLES
+--obtiene tablas y sus columnas
+SELECT * FROM nombre_bbdd.INFORMATION_SCHEMA.COLUMNS
+--Contar numero de tablas en bbdd
+SELECT COUNT(TABLE_NAME) FROM nombre_bbdd.INFORMATION_SCHEMA.TABLES
+
+</code></pre>
+
+<h2 id="tablas-dinamicas">Tablas dinámicas</h2>
+
+<p>Como sabemos, el instrumento de excelencia para operar con tablas
+dinámicas es MsExcel. Sin embargo, cuando los volumenes de datos superan
+el orden de <span class="math">\(10^7\)</span> registros, una tabla dinámica en excel comenzará a
+ponerse lenta e inmanejable. Para esto existe la función <code>PIVOT</code> que
+emula las funciones de excel mencionadas:</p>
+
+<pre><code>SELECT  &lt;columna_no_pivote&gt;,
+        &lt;lista_columnas_a_pivotear&gt;
+FROM
+(&lt;SELECT query que produce datos&gt;)
+AS &lt;nombre_alias&gt;
+PIVOT
+(
+&lt;funcion de agregado&gt;(&lt;columna agregado&gt;)
+FOR
+[&lt;campo desde el cual sale lista_columnas_a_pivotear&gt;]
+IN ( [ &lt;lista_columnas_a_pivotear&gt; ] )
+) AS &lt;alias_pivot&gt;
+</code></pre>
+
+<h1 id="ejercicio-final">Ejercicio Final</h1>
+
+<p>El archivo series_precios.csv contiene los precios diarios de 5 indices
+ampliamente utilizados en el mercado financiero. En el se incluyen
+además los días no hábiles, en cuyo caso se repite el precio de cierre
+del último día hábil disponible. Respecto a este archivo:</p>
+
+<ol>
+<li><p>Construya una tabla temporal <span class="hashtag">#fechas</span> que tenga la fecha de fin de
+mes anterior (fecha inicio) y la fecha de fin de mes (fecha término)
+para todos los meses que dispone la data.</p></li>
+<li><p>Construya una consulta que entregue el retorno mensual de una de las
+series (por ejemplo, serie1), donde sus campos sean la fecha de
+término del mes y el retorno, el cual calcularemos usando la
+expresión
+<span class="math">\(Retorno=100*\left(\frac{Precio Final-Precio Inicial}{Precio Inicial}\right)\)</span></p></li>
+<li><p>Utilice la consulta realizada en (3) para construir una consulta
+dinámica donde al cambiar el nombre de la serie, se obtenga una
+tabla de retornos.</p></li>
+<li><p>Elabore una consulta que obtenga el máximo retorno para una serie, y
+en qué mes se da.</p></li>
+<li><p>Elabore una consulta para obtener el segundo mayor retorno (sólo el
+retorno, sin fecha)</p></li>
+<li><p>Para la serie1 de precios, elaborar un <em>flag</em>(o campo binario) donde
+valga 1 si el día es hábil y 0 si no</p></li>
+<li><p>Calcular el promedio para los días hábiles (sólo serie de precios)</p></li>
+<li><p>Elabore un control que permita detectar si hay precios duplicados.</p></li>
+</ol>
+</body>
+</html>
